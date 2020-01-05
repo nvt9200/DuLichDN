@@ -1,0 +1,24 @@
+﻿@model DuLich_DH.Models.QuanTri
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <hr />
+    <h2 style="color:red; text-align: center">Thông tin cá nhân</h2>
+    <div style="width: 20%">
+        <img src="@Url.Content("~/HinhANH/" + Model.AnhDaiDien)" width="140" height="150" />
+    </div>
+    <div style="width: 50%">
+        <ul style="text-decoration: none;list-style-type: none">
+            <li>Tên tài khoản: @Model.TaiKhoan</li>
+            <li>Mật khẩu: @Model.MatKhau</li>
+        </ul>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaQuanTri })
+</p>

@@ -1,0 +1,20 @@
+﻿@model DuLich_DH.Models.DiaDiem
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 style="color: red;text-align: center">Cập nhật thông tin địa điểm</h2>
+    <hr />
+    <div class="horizontal">
+        <ul style="text-decoration:none;list-style-type:none">
+            <li><img src="@Url.Content("~/HinhANH/" + Model.HinhAnh)" width="140" height="150" /></li>
+            <li>Tên địa điểm: @Model.TenDiaDiem</li>
+            <li>Tên vị trí: @Model.ViTri.TenViTri</li>
+        </ul>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaDiaDiem })
+    </div>
+</div>
+

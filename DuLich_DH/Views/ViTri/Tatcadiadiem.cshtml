@@ -1,0 +1,17 @@
+﻿@using DuLich_DH.Models;
+@model List<ViTri>
+@{
+    ViewBag.Title = "Tatcadiadiem";
+    Layout = "~/Views/lAYOUT/Layout.cshtml";
+}
+    <section class="py-lg-4 py-md-3 py-sm-3 py-3">
+        <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+            @foreach (var item in Model)
+            {
+                <div>
+                    <h1>@item.TenViTri</h1>
+                    @Html.Action("Lietkediadiem", "ViTri", new { @id = item.MaViTri })
+                </div>
+            }
+        </div>
+    </section>

@@ -1,0 +1,32 @@
+﻿@model DuLich_DH.Models.KhachSan
+
+@{
+    ViewBag.Title = "Xemchitiet";
+    Layout = "~/Views/lAYOUT/Layout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div style="width:70%">
+        <span style="font-size:25px; color: orange">@Html.DisplayFor(model => model.TenKhachSan) - <a href="@Url.Action("Create", "DatPhongs", new { @maKS = Model.MaKhachSan })"button class="btn btn-success">Đặt Phòng</button></a></span>
+        <br />
+        <a href="#"><i style="color: red" class="fas fa-map-marker-alt">@Model.DiaChi</i></a>
+        <br />
+        <img src="@Url.Content("~/hinhANH/" + Model.HinhAnhKS)" width="749" height="499" />
+    </div>
+    <br />
+    <div class="form-horizontal" style="width: 70%">
+        <ul>
+            <li>
+                <a href="@Url.Action("thongtindiadiem", "DiaDiem", new { @id = Model.DiaDiem.MaDiaDiem })"><span>@Model.DiaDiem.TenDiaDiem</span></a>
+                <span>@Model.DanhGia</span>
+                <span>@Model.DonGia</span>
+                <span>@Model.LuotXem</span>
+            </li>
+            <li>
+                <span style="font-size:20px">Mô tả</span>
+                @Html.DisplayFor(model => model.MoTa)
+            </li>
+        </ul>
+    </div>
+</div>

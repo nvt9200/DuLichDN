@@ -1,0 +1,39 @@
+﻿@model DuLich_DH.Models.DiaDiem
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="container">
+        <h2 style="color: red;text-align: center">Xóa địa điểm</h2>
+        <hr />
+        <div class="horizontal">
+            <ul style="text-decoration:none;list-style-type:none">
+                <li><img src="@Url.Content("~/HinhANH/" + Model.HinhAnh)" width="140" height="150" /></li>
+                <li>Tên địa điểm: @Model.TenDiaDiem</li>
+                <li>Tên vị trí: @Model.ViTri.TenViTri</li>
+            </ul>
+        </div>
+        <div class="alert-danger" role="alert">
+            <p>@ViewBag.TB</p>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            bool tmp = true ;
+            if (tmp == true)
+            {
+                <div class="form-actions no-color" style="margin-left: 70%">
+                    <input type="submit" value="Delete" class="btn btn-danger" style="background-color: red" />
+                </div>
+            }
+            else
+            {
+                <div class="control-label" style="margin-left: 70%">
+                    <input type="submit" value="Delete" class="btn btn-danger" style="background-color: red" />
+                </div>
+            }
+        }
+    </div>

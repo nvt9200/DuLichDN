@@ -1,0 +1,91 @@
+﻿@using DuLich_DH.Models;
+@model List<KhachSan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/lAYOUT/Layout.cshtml";
+    Int32 tmp = new Int32();
+    if (Session["vitri"] != null)
+    {
+        tmp = (Int32)Session["vitri"];
+    }
+}
+
+
+
+
+@if (ViewBag.TBC != null)
+{
+    <br />
+    <div class="container alert-danger" role="alert" style="height:50px">
+        <i>Không có kết quả cho từ khóa <b>@Session["tukhoa"]</b><i>
+    </div>
+}
+else
+{
+    if (ViewBag.TBTKKS == null)
+    {
+        <section class="py-lg-4 py-md-3 py-sm-3 py-3">
+            <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+                <h1 style="text-align: center">TẤT CẢ KHÁCH SAN TẠI @ViewBag.TB</h1>
+                <p>@ViewBag.TBKS</p>
+                <div class="row">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-3 adventure-trip-grids">
+                            <div style="background-image: url('../../HinhANH/206371840.jpg');width: 100%; height: 200px; background-repeat: no-repeat; background-size: 100%; height: 200px;">
+                                <div class="rating-start ">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa fa-star" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa fa-star" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa fa-star" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa fa-star-half-o" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="fa fa-star-o" aria-hidden="true"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="discount-txt">
+                                <a href="@Url.Action("Xemchitiet", "KhachSan", new { @id = item.MaKhachSan })"><h6 style="color: saddlebrown; font-weight: bold">@item.TenKhachSan</h6></a>
+                                <div class="row mt-3">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 button-arrow ">
+                                        <a href="#contact" class="btn">@item.DiaDiem.TenDiaDiem</a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 price-rate">
+                                        <h6><i class="fa fa-eye">&nbsp;</i>@item.LuotXem</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </section>
+    }
+    <hr />
+    if (Session["TBTKDD"] == null)
+    {
+        @Html.Action("TimKiemDD", "TimKiem")
+    }
+}

@@ -1,0 +1,40 @@
+﻿@model DuLich_DH.Models.KhachSan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 style="color: red;text-align:center">Thông tin khách sạn</h2>
+    <hr />
+    <div class="horizontal">
+        <ul style="list-style-type: none; text-decoration: none;">
+            <li>
+                <img src="@Url.Content("~/HinhANH/" + Model.HinhAnhKS)" width="140" height="150" />
+            </li>
+            <li>
+                <span>Tên khách sạn: @Model.TenKhachSan</span>
+            </li>
+            <li>
+                <span>Địa chỉ: @Model.DiaChi</span>
+            </li>
+            <li>
+                <span>Địa điểm: @Model.DiaDiem.TenDiaDiem</span>
+            </li>
+            <li>
+                <span>Đánh giá: @Model.DanhGia</span>
+            </li>
+            <li>
+                <span>Lượt đánh giá: @Model.LuotDanhGia</span>
+            </li>
+            <li>
+                <span>Lượt xem: @Model.LuotXem</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaKhachSan })
+</p>

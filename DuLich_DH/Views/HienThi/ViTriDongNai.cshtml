@@ -1,0 +1,33 @@
+﻿@using DuLich_DH.Models;
+@model List<ViTri>
+
+
+
+    <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-2">ĐỊA ĐIỂM</h3>
+        <div class="title-w3ls-text text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">
+            <h6>TẠI ĐỒNG NAI</h6>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+               
+                <div class="col-lg-4 col-md-6 col-sm-6 ser-icon my-3">
+                    <div class="grid-wthree-service">
+                        <div>
+                            <a href="@Url.Action("tatcadiadiem", "DiaDiem", new { @id = item.MaViTri })"><img src="@Url.Content("~/HinhANH/"+item.HinhAnh)" style="width: 100%; height: 300px" /></a>
+                        </div>
+                        <div class="ser-text-wthree mt-3">
+                            <a href="@Url.Action("tatcadiadiem", "DiaDiem", new { @id = item.MaViTri })">
+                                <h4>
+                                    @item.TenViTri
+                                </h4>
+                            </a>
+                            <p class="mt-2">Bấm vào để kiếm khách sạn</p>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>

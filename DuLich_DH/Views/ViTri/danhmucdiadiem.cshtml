@@ -1,0 +1,8 @@
+﻿@using DuLich_DH.Models;
+@model List<DiaDiem>
+
+<a href="@Url.Action("tatcadiadiem", "DiaDiem", new { @id = (Int32)Session["vitri"] })">Tất cả</a>
+@foreach(var item in Model)
+{
+    <a href="@Url.Action("thongtindiadiem", "DiaDiem", new { @id = item.MaDiaDiem })">@item.TenDiaDiem</a>
+}

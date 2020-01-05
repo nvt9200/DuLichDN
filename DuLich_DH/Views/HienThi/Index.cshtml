@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/lAYOUT/Layout.cshtml";
+}
+
+
+<section class="service py-lg-4 py-md-4 py-sm-3 py-3" id="service">
+    @Html.Action("ViTriDongNai", "HienThi")
+</section>
+<!-- about -->
+@Html.Action("KhachSanXemNhieu", "HienThi")
+<!--//about -->
+<!-- service -->
+<!--//service -->
+<!-- some-text -->
+<!--//some-text -->
+<!-- gallery -->
+<!--//gallery -->
+<!-- blog -->
+<section class="blog" id="blog">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 blog-two-two p-0">
+                <div class="blog-wthree-list">
+                    <div class="blog-date-time mb-2">
+                        
+                    </div>
+                    <h4 class="mb-3">
+                        <a href="#contact">TẤT CẢ KHÁCH SẠN TẠI ĐỒNG NAI</a>
+                    </h4>
+                    <p>
+                        Bao gồm......
+                    </p>
+                    <div class="view-buttn mt-md-4 mt-sm-4 mt-3">
+                        <a href="@Url.Action("Tatcakhachsan", "KhachSan")" class="btn">XEM</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 p-0 blog-img-one" style="background-image: url('../../HinhANH/Buulong.png'); '); ') !important; ">
+                <div class="blog-wthree-list">
+                    <div class="blog-date-time mb-2">
+                        <div class="blog-date-time mb-2">
+                            
+                        </div>
+                    </div>
+                    <h4 class="mb-3">
+                        <a href="#contact">TẤT CẢ ĐỊA ĐIỂM TẠI ĐỒNG NAI</a>
+                    </h4>
+                    <p>
+                        Bao gồm......
+                    </p>
+                    <div class="view-buttn mt-md-4 mt-sm-4 mt-3">
+                        <a href="@Url.Action("Tatcadiadiem", "ViTri")" class="btn">XEM</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 p-0 blog-img-two" style="background-image: url('../../HinhANH/229963875.jpg'); " ') !important;">
+                <div class="blog-wthree-list">
+                    <div class="blog-date-time mb-2">
+                        <div class="blog-date-time mb-2">
+                            Có tất cả: 30 Khách sạn
+                        </div>
+                    </div>
+                    <h4 class="mb-3">
+                        <a href="#contact">TẤT CẢ KHÁCH SẠN XEM NHIỀU</a>
+                    </h4>
+                    <p>
+                        Bao gồm......
+                    </p>
+                    <div class="view-buttn mt-md-4 mt-sm-4 mt-3">
+                        <a href="@Url.Action("Khachsanxemnhieu", "KhachSan")" class="btn">XEM</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 blog-two-two p-0">
+                <div class="blog-wthree-list">
+                    <div class="blog-date-time mb-2">
+                        <div class="blog-date-time mb-2">
+                            Có tất cả: 30 Khách sạn
+                        </div>
+                    </div>
+                    <h4 class="mb-3">
+                        <a href="#contact">TẤT CẢ KHÁCH SẠN GIÁ RẺ</a>
+                    </h4>
+                    <p>
+                        Bao gồm......
+                    </p>
+                    <div class="view-buttn mt-md-4 mt-sm-4 mt-3">
+                        <a href="@Url.Action("Khachsangiare", "KhachSan")" class="btn">XEM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

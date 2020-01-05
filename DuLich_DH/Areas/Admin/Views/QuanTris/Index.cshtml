@@ -1,0 +1,57 @@
+﻿@using DuLich_DH.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<QuanTri>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    if (Session["ad"] == null)
+    {
+        Response.Redirect("/Admin/Admin/Index");
+    }
+}
+
+<button class="btn btn-danger">
+    @Html.ActionLink("Create New", "Create")
+</button>
+<table class="table">
+    <tr>
+        <th>
+            <span>Ảnh đại diện</span>
+        </th>
+        <th>
+            <span>Tài Khoản</span>
+        </th>
+        <th>
+            <span>Ngày tạo</span>
+        </th>
+        <th>
+            <span>Công cụ</span>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@Url.Content("~/hinhAnh/" + item.AnhDaiDien)" width="80" height="80" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaiKhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayTao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaQuanTri }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaQuanTri }) |
+            <a href="@Url.Action("DeleteConfirmed", new { @id = item.MaQuanTri })" onclick="return confirm('Mày chắc chứ')">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="container" style="margin-left: 45%">
+    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page }))
+</div>

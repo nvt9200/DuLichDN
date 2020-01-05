@@ -1,0 +1,73 @@
+﻿@using DuLich_DH.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<KhachSan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<button class="btn btn-danger">
+    @Html.ActionLink("Create New", "Create")
+</button>
+<br />
+<br />
+<table class="table" style="border: 1px solid black">
+    <tr>
+        <th>
+            <span>Tên khách sạn</span>
+        </th>
+        <th>
+            <span>Hình ảnh</span>
+        </th>
+        <th>
+            <span>Địa điểm</span>
+        </th>
+        <th>
+            <span>Đánh giá</span>
+        </th>
+        <th>
+            <span>Lượt đánh giả</span>
+        </th>
+        <th>
+            <span>Ngày đăng</span>
+        </th>
+        <th>
+            <span>Công cụ</span>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKhachSan)
+        </td>
+        <td>
+            <img src="@Url.Content("~/HinhANH/" + item.HinhAnhKS)" width="140" height="150" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaDiem.TenDiaDiem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DanhGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuotDanhGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaKhachSan }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaKhachSan }) |
+            <a href="@Url.Action("DeleteConfirmed", new { @id = item.MaKhachSan })" onclick="return confirm('mày chắc chứ')">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+<div class="container" style="margin-left: 45%">
+    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page }))
+</div>

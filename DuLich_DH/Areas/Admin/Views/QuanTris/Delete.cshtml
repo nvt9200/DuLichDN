@@ -1,0 +1,28 @@
+﻿@model DuLich_DH.Models.QuanTri
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 style="color: red; text-align: center">Xóa thông tin người dùng</h2>
+    <hr />
+    <div class="horizontal">
+        <ul style="text-decoration: none; list-style-type: none">
+            <li><img src="@Url.Content("~/HinhANH/" + Model.AnhDaiDien)" width="140" height="150" /></li>
+            <li>Tài khoản: @Model.TaiKhoan</li>
+            <li>Mật khẩu: @Model.MatKhau</li>
+            <li>Quyền quản trị: @Model.QuyenQuanTri</li>
+        </ul>
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions" style="margin-left: 70%">
+            <input type="submit" value="Delete" class="btn btn-danger" style="background-color: red" /> 
+        </div>
+    }
+</div>

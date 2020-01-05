@@ -1,0 +1,9 @@
+﻿@using DuLich_DH.Models;
+@model List<DiaDiem>
+
+<select style="width:100%;height:50px" name="MaDiaDiem">
+    @foreach(var item in Model)
+    {
+        <option value="@item.MaDiaDiem">@item.TenDiaDiem</option>
+    }
+</select>

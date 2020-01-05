@@ -1,0 +1,11 @@
+﻿@using DuLich_DH.Models;
+@model List<BinhLuan>
+
+@foreach(var item in Model)
+{
+    <div class="container">
+        <span>@item.TenNguoiBinhLuan</span>
+        <span>@item.NgayDang</span>
+        <span>@item.BinhLuan1</span>
+    </div>
+}
